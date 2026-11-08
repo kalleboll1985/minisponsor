@@ -101,7 +101,7 @@ a{color:#0B7A3C}a:hover{color:#0A2E1A}
       <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 16px">
         <div id="card" hidden style="background: #0A2E1A; color: #ffffff; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 8px; min-height: 160px; box-sizing: border-box">
             <span style="font-family: 'Barlow Condensed', Barlow, sans-serif; font-weight: 800; font-size: 40px; line-height: 1"><span id="sel-name"></span></span>
-            <a id="sel-ig" hidden href="#" style="font-size: 17px; line-height: 1.4; font-weight: 600; color: #E6B92E; text-decoration: none"></a>
+            <a id="sel-ig" hidden href="#" style="font-size: 17px; line-height: 1.4; font-weight: 600; color: #E6B92E; text-decoration: none; display: inline-flex; align-items: center; gap: 8px"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #0A2E1A; background: #E6B92E; border-radius: 4px; padding: 2px 6px">Instagram</span><span id="sel-ig-handle"></span></a>
             <span id="sel-coach" hidden style="font-size: 17px; line-height: 1.4; color: rgba(255,255,255,0.86)">Tränare</span>
             <div id="qa">
               <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 12px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2)">
@@ -252,7 +252,7 @@ a{color:#0B7A3C}a:hover{color:#0A2E1A}
     document.querySelectorAll('.chip').forEach(function(el){ el.classList.toggle('on', el.getAttribute('data-id') === id); });
     text('sel-name', p.name);
     var ig = document.getElementById('sel-ig'), coach = document.getElementById('sel-coach');
-    if (p.ig) { ig.textContent = '@' + p.ig; ig.href = 'https://www.instagram.com/' + p.ig + '/'; ig.hidden = false; } else { ig.hidden = true; }
+    if (p.ig) { document.getElementById('sel-ig-handle').textContent = '@' + p.ig; ig.href = 'https://www.instagram.com/' + p.ig + '/'; ig.hidden = false; } else { ig.hidden = true; }
     coach.hidden = p.role !== 'Tränare';
     var isPlayer = p.role === 'Spelare';
     qa.hidden = !isPlayer;
